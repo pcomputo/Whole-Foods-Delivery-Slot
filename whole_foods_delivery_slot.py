@@ -1,17 +1,9 @@
-from bs4 import BeautifulSoup
 import bs4
-
-import requests
-import urllib
 
 from selenium import webdriver
 
-import json
-
 import sys
 import time
-
-import re
 import os
 
 
@@ -24,7 +16,7 @@ def getWFSlot(productUrl):
    driver.get(productUrl)           
    html = driver.page_source
    soup = bs4.BeautifulSoup(html)
-   time.sleep(90)
+   time.sleep(40)
    no_open_slots = True
 
    while no_open_slots:
