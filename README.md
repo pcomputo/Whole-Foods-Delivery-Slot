@@ -20,7 +20,7 @@ _The script works after you have added all the items to your cart! Note, have yo
 3. The first time you run this script, Whole Foods cart will ask you to login. After you login, go to the "Shipping and Payment" window. Its titled: _Schedule your order_. Leave the script running.
 4. Get a nice warm Tea, browse reddit, do something on Xbox, etc.
 5. Once a slot opens the script will verbally notify you of an open slot.
-6. Have fun! Stay Safe!
+6. Proceed to checkout once you select a time slot. Stay Safe!
 
 > __Screen 1__
 ![alt text](https://github.com/pcomputo/Whole-Foods-Delivery-Slot/blob/master/instruction_img/step1.png)
