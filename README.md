@@ -20,13 +20,17 @@ _The script works after you have added all the items to your cart! Note, have yo
 5. Once a slot opens the script will verbally notify you of an open slot.
 6. Have fun! Stay Safe!
 
-__Screen 1__
+> __Screen 1__
 ![alt text](https://github.com/pcomputo/Whole-Foods-Delivery-Slot/blob/master/instruction_img/step1.png)
-__Screen 2__
+
+> __Screen 2__
 ![alt text](https://github.com/pcomputo/Whole-Foods-Delivery-Slot/blob/master/instruction_img/step2.png)
-__Screen 3__
+
+> __Screen 3__
 ![alt text](https://github.com/pcomputo/Whole-Foods-Delivery-Slot/blob/master/instruction_img/step3.png)
-__Screen 4__
+
+> __Screen 4__
 ![alt text](https://github.com/pcomputo/Whole-Foods-Delivery-Slot/blob/master/instruction_img/step4.png)
-__Screen 5: Leave script running on this screen!__
+
+> __Screen 5: Leave script running on this screen!__
 ![alt text](https://github.com/pcomputo/Whole-Foods-Delivery-Slot/blob/master/instruction_img/step5.png)
