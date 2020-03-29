@@ -1,4 +1,4 @@
-# WholeFoodsDeliverySlot
+# Whole Foods Delivery Slot Automated Script
 
 Yes, these days checking for Whole Foods delivery slots can get cumbersome. To free you off the constant hastle of checking for slots, this automated script can notify you (yes notifies you verbally, so you can go 'bout your tasks) of when new delivery slots open.
 
