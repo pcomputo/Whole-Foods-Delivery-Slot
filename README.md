@@ -13,7 +13,7 @@ _The script works after you have added all the items to your cart! Note, have yo
 
 
 ### After you clone the project:
-1. Run the requirements.txt (```python $ pip install -r requirements.txt```)
+1. Run the requirements.txt (```$ pip install -r requirements.txt```)
 2. Run whole_foods_delivery_slot.py (``` $ python whole_foods_delivery_slot.py```)
 3. The first time you run this script, Whole Foods cart will ask you to login. After you login, go to the "Shipping and Payment" window. Its titled: _Schedule your order_. Leave the script running.
 4. Get a nice warm Tea, browse reddit, do something on Xbox, etc.
