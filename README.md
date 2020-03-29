@@ -11,8 +11,8 @@ You'll have to update the path of the this installed webdriver under: ```python 
 _The script works after you have added all the items to your cart! Note, have your cart ready before running this script! Also, please don't let your computer sleep._
 
 ### After you clone the project:
-1. Run the requirements.txt ($ pip install -r requirements.txt)
-2. Run whole_foods_delivery_slot.py ($ python whole_foods_delivery_slot.py)
+1. Run the requirements.txt (```python $ pip install -r requirements.txt```)
+2. Run whole_foods_delivery_slot.py (```python $ python whole_foods_delivery_slot.py```)
 3. Get a nice warm Tea, browse reddit, do something on Xbox, etc.
 4. Once a slot opens the script will verbally notify you of an open slot.
 5. Have fun! Stay Safe!
