@@ -1,6 +1,6 @@
 # Whole Foods Delivery Slot Automated Script
 
-Yes, amid COVID-19 trying to get Whole Foods delivery slots can get cumbersome. To free you off the constant hastle of checking for slots (and almost never finding one), this automated script can notify you (yes notifies you verbally, so you can go about your tasks) of when new delivery slots open.
+Yes, amid COVID-19 trying to get Whole Foods delivery slots can get cumbersome. To free you off the constant hassle of checking for slots (and almost never finding one), this automated script can notify you (yes notifies you verbally, so you can go about your tasks) of when new delivery slots open.
 
 
 ## Usage:
