@@ -8,7 +8,7 @@ The script works on **Chrome** for now.
 It initializes a Chrome webdriver, for which if you don't have one install it from: https://chromedriver.chromium.org/
 You'll have to update the path of the this installed webdriver under: ```python driver = webdriver.Chrome()``` if its not the default location your OS needs. 
 
-_The script works after you have added all the items to your cart! Note, have your cart ready before running this script! Also, please don't let your computer sleep._
+_The script works after you have added all the items to your cart! Note, have your cart ready before running this script! Also, please don't let your computer sleep. Let your computer do the work, while you sleep_
 
 ### After you clone the project:
 1. Run the requirements.txt (```python $ pip install -r requirements.txt```)
