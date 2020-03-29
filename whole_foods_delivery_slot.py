@@ -14,12 +14,6 @@ import time
 import re
 import os
 
-'''
-from PyQt4.QtGui import QApplication
-from PyQt4.QtCore import QUrl
-from PyQt4.QtWebKit import QWebPage
-'''
-
 
 def getWFSlot(productUrl):
    headers = {
@@ -30,7 +24,7 @@ def getWFSlot(productUrl):
    driver.get(productUrl)           
    html = driver.page_source
    soup = bs4.BeautifulSoup(html)
-   time.sleep(40)
+   time.sleep(90)
    no_open_slots = True
 
    while no_open_slots:
@@ -40,15 +34,6 @@ def getWFSlot(productUrl):
       soup = bs4.BeautifulSoup(html)
       time.sleep(4)
 
-      '''
-      mydivs = soup.find_all("div", class_ = "a-box a-alert a-alert-info ufss-slotselect-unavailable-alert")
-      if mydivs:
-         print("NO SLOTS!")
-      else:
-         print("SLOTS OPEN!")
-         os.system('say "Slots for delivery opened!"')
-         no_open_slots = False
-      '''
       slot_pattern = 'Next available'
       try:
          next_slot_text = soup.find('h4', class_ ='ufss-slotgroup-heading-text a-text-normal').text
@@ -69,7 +54,6 @@ def getWFSlot(productUrl):
             print('SLOTS OPEN!')
             os.system('say "Slots for delivery opened!"')
             no_open_slots = False
-
 
 
 getWFSlot('https://www.amazon.com/gp/buy/shipoptionselect/handlers/display.html?hasWorkingJavascript=1')
