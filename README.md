@@ -1,10 +1,10 @@
-# Whole Foods Delivery Slot Automated Script
+# Whole Foods and Amazon Fresh Delivery Slot Automated Script
 
-Yes, amid COVID-19 trying to get Whole Foods delivery slots can get cumbersome. To free you off the constant hassle of checking for slots (and almost never finding one), this automated script can notify you (yes notifies you verbally, so you can go about your tasks) of when new delivery slots open.
+Yes, amid COVID-19 trying to get Whole Foods and Amazon Fresh delivery slots can get cumbersome. To free you off the constant hassle of checking for slots (and almost never finding one), this automated script can notify you (yes notifies you verbally, so you can go about your tasks) of when new delivery slots open.
 
 
 ## Usage:
-The script works on **Chrome** (```whole_foods_delivery_slot_chrome.py```) and **FireFox** (```whole_foods_delivery_slot_firefox.py```) for now. 
+The script works on **Chrome** (```whole_foods_delivery_slot_chrome.py``` for Whole Foods) (```amazon_fresh_delivery_slot_chrome.py``` for Amazon Fresh) and **FireFox** (```whole_foods_delivery_slot_firefox.py```) for now. 
 It initializes a  webdriver, for which if you don't have one install it from: https://chromedriver.chromium.org/ for Chrome and https://github.com/mozilla/geckodriver/releases for FireFox.
 
 You'll have to update the path of the this installed webdriver under: ```python driver = webdriver.Chrome()``` if its not the default location your OS needs. Similarly, for FireFox ```python driver = webdriver.FireFox()```
@@ -16,7 +16,7 @@ _The script works after you have added all the items to your cart! Note, have yo
 
 
 ### After you clone the project:
-_Walkthrough for Chrome, follow same steps if running on FireFox with the FireFox script_
+_Walkthrough for Chrome for Whole Foods, follow same steps if running on FireFox with the FireFox script_
 
 1. Run the requirements.txt (```$ pip install -r requirements.txt```)
 2. Run whole_foods_delivery_slot_chrome.py (``` $ python whole_foods_delivery_slot_chrome.py```)
