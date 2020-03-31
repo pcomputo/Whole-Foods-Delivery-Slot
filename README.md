@@ -4,6 +4,7 @@ Yes, amid COVID-19 trying to get Whole Foods and Amazon Fresh delivery slots can
 
 
 ## Usage:
+Supports **MacOS, Linux, and Windows**.
 The script works on **Chrome** (```whole_foods_delivery_slot_chrome.py``` for Whole Foods) (```amazon_fresh_delivery_slot_chrome.py``` for Amazon Fresh) and **FireFox** (```whole_foods_delivery_slot_firefox.py```) for now. 
 It initializes a  webdriver, for which if you don't have one install it from: https://chromedriver.chromium.org/ for Chrome and https://github.com/mozilla/geckodriver/releases for FireFox.
 
