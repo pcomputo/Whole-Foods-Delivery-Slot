@@ -8,7 +8,7 @@ import os
 
 
 def getWFSlot(productUrl):
-   driver = webdriver.FireFox()
+   driver = webdriver.Firefox()
    driver.get(productUrl)           
    html = driver.page_source
    soup = bs4.BeautifulSoup(html)
