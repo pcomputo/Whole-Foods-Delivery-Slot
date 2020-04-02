@@ -6,6 +6,8 @@ Yes, amid COVID-19 trying to get Whole Foods and Amazon Fresh delivery slots can
 ## Usage:
 Supports **MacOS, Linux, and Windows**.
 
+Note, use the ```whole_foods_delivery_windows.py``` for Windows. Also, only for this OS, you'll have to install an additional package ```winsound```
+
 The script works on **Chrome** (```whole_foods_delivery_slot_chrome.py``` for Whole Foods) (```amazon_fresh_delivery_slot_chrome.py``` for Amazon Fresh) and **FireFox** (```whole_foods_delivery_slot_firefox.py```) for now. 
 It initializes a  webdriver, for which if you don't have one install it from: https://chromedriver.chromium.org/ for Chrome and https://github.com/mozilla/geckodriver/releases for FireFox.
 
@@ -13,7 +15,7 @@ You'll have to update the path of the this installed webdriver under: ```python 
 
 Script was written on Python 2.7.10
 
-Note, for Linux and Mac the code will work as it is. If using Windows use the Windows file.
+
 
 
 _The script works after you have added all the items to your cart! Note, have your cart ready before running this script! Also, please don't let your computer sleep. Let your computer do the work, while you sleep_
