@@ -13,6 +13,9 @@ You'll have to update the path of the this installed webdriver under: ```python 
 
 Script was written on Python 2.7.10
 
+Note, for Linux and Mac the code will work as it is. If using Windows use the Windows file.
+
+
 _The script works after you have added all the items to your cart! Note, have your cart ready before running this script! Also, please don't let your computer sleep. Let your computer do the work, while you sleep_
 
 
