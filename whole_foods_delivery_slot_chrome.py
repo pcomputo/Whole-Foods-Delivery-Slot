@@ -5,13 +5,13 @@ from selenium import webdriver
 import sys
 import time
 import os
+import pyttsx3
+
+engine = pyttsx3.init() # object creation
 
 def sayIt(textToSay):
-   # mac command
-   # os.system('say "Slots for delivery opened!"')
-   # windows say command
-   command = 'PowerShell -Command "Add-Type -AssemblyName System.Speech; (New-Object System.Speech.Synthesis.SpeechSynthesizer).Speak(\'{}\');"'.format(textToSay)
-   os.system(command)
+   engine.say(textToSay)
+   engine.runAndWait()
 
 def getWFSlot(productUrl):
    headers = {
@@ -68,4 +68,4 @@ def getWFSlot(productUrl):
 sayIt("Starting")
 getWFSlot('https://www.amazon.com/gp/buy/shipoptionselect/handlers/display.html?hasWorkingJavascript=1')
 
-
+engine.stop()
