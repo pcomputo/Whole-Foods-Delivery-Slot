@@ -6,6 +6,12 @@ import sys
 import time
 import os
 
+def sayIt(textToSay):
+   # mac command
+   # os.system('say "Slots for delivery opened!"')
+   # windows say command
+   command = 'PowerShell -Command "Add-Type -AssemblyName System.Speech; (New-Object System.Speech.Synthesis.SpeechSynthesizer).Speak(\'{}\');"'.format(textToSay)
+   os.system(command)
 
 def getWFSlot(productUrl):
    headers = {
@@ -31,7 +37,7 @@ def getWFSlot(productUrl):
          next_slot_text = soup.find('h4', class_ ='ufss-slotgroup-heading-text a-text-normal').text
          if slot_pattern in next_slot_text:
             print('SLOTS OPEN!')
-            os.system('say "Slots for delivery opened!"')
+            sayIt("Slots for delivery opened!")
             no_open_slots = False
             time.sleep(1400)
       except AttributeError:
@@ -43,7 +49,7 @@ def getWFSlot(productUrl):
          for each_date in all_dates:
             if slot_opened_text not in each_date.text:
                print('SLOTS OPEN!')
-               os.system('say "Slots for delivery opened!"')
+               sayIt("Slots for delivery opened!")
                no_open_slots = False
                time.sleep(1400)
       except AttributeError:
@@ -55,10 +61,11 @@ def getWFSlot(productUrl):
             print("NO SLOTS!")
       except AttributeError: 
             print('SLOTS OPEN!')
-            os.system('say "Slots for delivery opened!"')
+            sayIt("Slots for delivery opened!")
             no_open_slots = False
 
 
+sayIt("Starting")
 getWFSlot('https://www.amazon.com/gp/buy/shipoptionselect/handlers/display.html?hasWorkingJavascript=1')
 
 
