@@ -46,3 +46,37 @@ _Walkthrough for Chrome for Whole Foods, follow same steps if running on FireFox
 
 > __Screen 5: Leave script running on this screen!__
 ![alt text](https://github.com/pcomputo/Whole-Foods-Delivery-Slot/blob/master/instruction_img/step5.png)
+
+### Virtual Environment Setup
+You can creata a virtual environment to install dependencies only for the virtual environment.
+
+Create a virtual env: activate, install python requirements:
+
+```
+virtualenv venv  
+source venv/bin/activate
+pip install -r requirements.txt
+```
+
+If you are installing a separate web driver for this project and want to keep depenedecies isolated, you can also copy the web driver executable into `venv/bin/`. For example, for chromedriver:
+
+```
+cp chromedriver venv/bin/
+```
+
+* Since `venv/bin/ is added to head of your `$PATH`, this will be the driver used by webdriver.
+
+```
+$ echo $PATH
+    /.../Whole-Foods-Delivery-Slot/venv/bin:/usr/local/bin:...
+```
+
+You can now run the code in the virtualenv:
+``` $ python whole_foods_delivery_slot_chrome.py```
+
+Cleanup virtual env: deactivate, remove files
+
+```
+deactivate
+rm -rf ./venv
+```
