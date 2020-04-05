@@ -1,3 +1,6 @@
+# refresh interval in seconds
+interval = 4
+
 # enable click of purchase button
 enable_purchase = True
 

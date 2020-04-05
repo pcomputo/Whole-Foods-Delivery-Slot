@@ -46,9 +46,6 @@ def send_slack_notification():
     return response
 
 def getWFSlot(productUrl):
-    # set refresh interval
-    interval = 4
-
     # create webdriver object and fetch URL
     chrome_options = Options()
     # chrome_options.add_experimental_option("debuggerAddress", "127.0.0.1:9222")
@@ -63,8 +60,8 @@ def getWFSlot(productUrl):
 
         # loop while URL is not on the delivery window page
         while driver.current_url != productUrl:
-            print(f"Not on delivery window page. Waiting {interval} seconds to check again...")
-            time.sleep(interval)
+            print(f"Not on delivery window page. Waiting {config.interval} seconds to check again...")
+            time.sleep(config.interval)
         
         try:
             # search for delivery slot buttons, select first one, then click continue
@@ -119,10 +116,10 @@ def getWFSlot(productUrl):
             
         except IndexError:
             # if no slots found, do nothing
-            print(f"No slots found, waiting {interval} seconds...", end = "")
+            print(f"No slots found, waiting {config.interval} seconds...", end = "")
 
         # refresh the page, update soup object, wait specified time before next check
-        time.sleep(interval)
+        time.sleep(config.interval)
         driver.refresh()
         print("refreshing.")
 
