@@ -1,6 +1,6 @@
 # Whole Foods and Amazon Fresh Delivery Slot Automated Script
 
-Yes, amid COVID-19 trying to get Whole Foods and Amazon Fresh delivery slots can get cumbersome. To free you off the constant hassle of checking for slots (and almost never finding one), this automated script can notify you (yes notifies you verbally, so you can go about your tasks) of when new delivery slots open.
+Yes, amid COVID-19 trying to get Whole Foods and Amazon Fresh delivery slots can get cumbersome. To free you off the constant hassle of checking for slots (and almost never finding one), this automated script can notify you (yes notifies you verbally, so you can go about your tasks) of when new delivery slots open. The autobuy script will automatically place your order using the first available delivery window.
 
 
 ## Description:
@@ -8,7 +8,7 @@ Supports **MacOS, Linux, and Windows**.
 
 Note, use the ```whole_foods_delivery_windows.py``` for Windows. Also, only for this OS, you'll have to install an additional package ```winsound```
 
-The script works on **Chrome** (```whole_foods_delivery_slot_chrome.py``` for Whole Foods) (```amazon_fresh_delivery_slot_chrome.py``` for Amazon Fresh) and **FireFox** (```whole_foods_delivery_slot_firefox.py```) for now. 
+The script works on **Chrome** (```whole_foods_delivery_slot_chrome.py``` for Whole Foods), (```whole_foods_delivery_slot_chrome_autobuy.py``` for Whole Foods w/Automatic Purchase), (```amazon_fresh_delivery_slot_chrome.py``` for Amazon Fresh) and **FireFox** (```whole_foods_delivery_slot_firefox.py```) for now. 
 
 Scripts were written on Python 2.7.10. whole_foods_delivery_slot_chrome_autobuy.py has been tested on Python 3.7.1
 
@@ -51,6 +51,7 @@ _Walkthrough for Chrome for Whole Foods, follow same steps if running on FireFox
 
 _Walkthrough for Chrome Autobuy script for Whole Foods_
 
+Note: This script will AUTOMATICALLY complete your purchase with the first available delivery window
 1. Copy config.py-example to config.py and update settings as necessary
 2. Run whole_foods_delivery_slot_chrome_autobuy.py (``` $ python whole_foods_delivery_slot_chrome_autobuy.py```)
 3. The first time you run this script, Whole Foods cart will ask you to login. After you login, go to the "Shipping and Payment" window. Its titled: _Schedule your order_. Leave the script running, it will automatically detect when you are on the right screen and will tell you that it's refreshing.
