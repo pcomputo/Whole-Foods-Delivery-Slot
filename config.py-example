@@ -1,0 +1,19 @@
+# for ifttt URL and config instructions click the "Documentation" link on this page: https://ifttt.com/maker_webhooks
+ifttt = {
+        'webhook': ''
+        }
+
+# for twilio config see https://www.twilio.com/docs/sms/quickstart/python
+twilio = {
+    'account_sid': '<twilio account sid>',
+    'auth_token': '<twilio auth token>',
+    'twilio_number': '<your twilio number>',
+    'cell_number': '<your cell number>'
+    }
+
+# for slack instructions see https://notes.ayushsharma.in/2017/09/posting-messages-to-slack-using-incoming-webhooks-and-python-requests-api
+slack = {
+    'webhook': '<slack webhook URL>',
+    'username': '<slack username>'
+    }
+

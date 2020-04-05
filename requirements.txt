@@ -3,3 +3,4 @@ chromedriver-binary==81.0.4044.69.0
 selenium==3.141.0
 urllib3==1.25.8
 webdriver-manager==2.3.0
+twilio==6.38.0
