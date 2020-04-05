@@ -90,19 +90,23 @@ def getWFSlot(productUrl):
                 place_order_button = WebDriverWait(driver, 5).until(EC.visibility_of_element_located(
                     (By.XPATH, "//input[@class='a-button-text place-your-order-button']")
                     ))
-                # place_order_button.click()
-                print("Order placed!")
+                if config.enable_purchase:
+                    place_order_button.click()
+                    print("Order placed!")
 
-                # send notifications
-                if config.notifications['slack']:
-                    print('sending slack notification')
-                    send_slack_notification()
-                if config.notifications['sms']:
-                    print('sending sms notification')
-                    send_sms()
-                if config.notifications['ifttt']:
-                    print('sending ifttt notification')
-                    send_ifttt()
+                    # send notifications
+                    if config.notifications['slack']:
+                        print('sending slack notification')
+                        send_slack_notification()
+                    if config.notifications['sms']:
+                        print('sending sms notification')
+                        send_sms()
+                    if config.notifications['ifttt']:
+                        print('sending ifttt notification')
+                        send_ifttt()
+                else:
+                    print("Purchasing disabled. Please complete purchase manually.")
+
 
                 # sleep for an hour after success then quit
                 time.sleep(3600)

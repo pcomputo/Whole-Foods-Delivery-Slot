@@ -1,3 +1,6 @@
+# enable click of purchase button
+enable_purchase = True
+
 # select which notifications to enable
 notifications = {
     'slack': True,
