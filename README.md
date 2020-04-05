@@ -16,7 +16,7 @@ Scripts were written on Python 2.7.10. whole_foods_delivery_slot_chrome_autobuy.
 _The script works after you have added all the items to your cart! Note, have your cart ready before running this script! Also, please don't let your computer sleep. Let your computer do the work, while you sleep_
 
 
-### Installation
+### Installation:
 
 1. Clone the project into a local directory
 2. Install the webdriver if you don't have it from: https://chromedriver.chromium.org/ for Chrome and https://github.com/mozilla/geckodriver/releases for FireFox.
