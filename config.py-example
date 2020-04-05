@@ -1,11 +1,11 @@
 # enable click of purchase button
 enable_purchase = True
 
-# select which notifications to enable
+# select which notifications to enable, services must be configured first, see below
 notifications = {
-    'slack': True,
-    'ifttt': True,
-    'sms': False
+    'slack': False,
+    'ifttt': False,
+    'twilio_sms': False
 }
 
 # for ifttt URL and config instructions click the "Documentation" link on this page: https://ifttt.com/maker_webhooks

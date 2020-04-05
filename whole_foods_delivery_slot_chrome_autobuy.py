@@ -98,7 +98,7 @@ def getWFSlot(productUrl):
                     if config.notifications['slack']:
                         print('sending slack notification')
                         send_slack_notification()
-                    if config.notifications['sms']:
+                    if config.notifications['twilio_sms']:
                         print('sending sms notification')
                         send_sms()
                     if config.notifications['ifttt']:
