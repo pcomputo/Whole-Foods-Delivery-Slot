@@ -16,7 +16,7 @@ def send_ifttt():
     
     report = {}
     report["value1"] = "Amazon order placed"
-    requests.post(config.ifttt_webhook, data=report)
+    requests.post(config.ifttt['webhook'], data=report)
 
 
 def send_sms():
@@ -94,9 +94,15 @@ def getWFSlot(productUrl):
                 print("Order placed!")
 
                 # send notifications
-                send_slack_notification()
-                send_sms()
-                send_ifttt()
+                if config.notifications['slack']:
+                    print('sending slack notification')
+                    send_slack_notification()
+                if config.notifications['sms']:
+                    print('sending sms notification')
+                    send_sms()
+                if config.notifications['ifttt']:
+                    print('sending ifttt notification')
+                    send_ifttt()
 
                 # sleep for an hour after success then quit
                 time.sleep(3600)

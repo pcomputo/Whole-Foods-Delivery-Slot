@@ -1,2 +1,4 @@
 config.py
-
+venv3
+settings.json
+*.pyc

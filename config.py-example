@@ -1,6 +1,13 @@
+# select which notifications to enable
+notifications = {
+    'slack': True,
+    'ifttt': True,
+    'sms': False
+}
+
 # for ifttt URL and config instructions click the "Documentation" link on this page: https://ifttt.com/maker_webhooks
 ifttt = {
-        'webhook': ''
+        'webhook': '<ifttt webhook URL>'
         }
 
 # for twilio config see https://www.twilio.com/docs/sms/quickstart/python
