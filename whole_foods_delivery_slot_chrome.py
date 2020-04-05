@@ -5,7 +5,7 @@ from selenium import webdriver
 import sys
 import time
 import os
-
+from datetime import datetime
 
 def getWFSlot(productUrl):
    headers = {
@@ -21,7 +21,7 @@ def getWFSlot(productUrl):
 
    while no_open_slots:
       driver.refresh()
-      print("refreshed")
+      print("Last Refreshed: %s" % (datetime.now()))
       html = driver.page_source
       soup = bs4.BeautifulSoup(html)
       time.sleep(4)
@@ -30,10 +30,10 @@ def getWFSlot(productUrl):
       try:
          next_slot_text = soup.find('h4', class_ ='ufss-slotgroup-heading-text a-text-normal').text
          if slot_pattern in next_slot_text:
-            print('SLOTS OPEN!')
+            print('SLOTS OPEN! (path1)')
             os.system('say "Slots for delivery opened!"')
-            no_open_slots = False
-            time.sleep(1400)
+            # no_open_slots = False -> Do not turn off polling just back off for two minutes
+            time.sleep(120)
       except AttributeError:
          continue
 
@@ -42,10 +42,10 @@ def getWFSlot(productUrl):
          all_dates = soup.findAll("div", {"class": "ufss-date-select-toggle-text-availability"})
          for each_date in all_dates:
             if slot_opened_text not in each_date.text:
-               print('SLOTS OPEN!')
+               print('SLOTS OPEN! (path2)')
                os.system('say "Slots for delivery opened!"')
-               no_open_slots = False
-               time.sleep(1400)
+               # no_open_slots = False -> Do not turn off polling just back off for two minutes
+               time.sleep(120)
       except AttributeError:
          continue
 
@@ -54,9 +54,10 @@ def getWFSlot(productUrl):
          if no_slot_pattern == soup.find('h4', class_ ='a-alert-heading').text:
             print("NO SLOTS!")
       except AttributeError: 
-            print('SLOTS OPEN!')
+            print('SLOTS OPEN! (path3)')
             os.system('say "Slots for delivery opened!"')
-            no_open_slots = False
+            # no_open_slots = False -> Do not turn off polling just back off for two minutes
+            time.sleep(120)
 
 
 getWFSlot('https://www.amazon.com/gp/buy/shipoptionselect/handlers/display.html?hasWorkingJavascript=1')
