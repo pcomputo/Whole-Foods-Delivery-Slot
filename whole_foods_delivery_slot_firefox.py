@@ -5,7 +5,13 @@ from selenium import webdriver
 import sys
 import time
 import os
+import pyttsx3
 
+engine = pyttsx3.init() # object creation
+
+def sayIt(textToSay):
+   engine.say(textToSay)
+   engine.runAndWait()
 
 def getWFSlot(productUrl):
    driver = webdriver.Firefox()
@@ -27,7 +33,7 @@ def getWFSlot(productUrl):
          next_slot_text = soup.find('h4', class_ ='ufss-slotgroup-heading-text a-text-normal').text
          if slot_pattern in next_slot_text:
             print('SLOTS OPEN!')
-            os.system('say "Slots for delivery opened!"')
+            sayIt("Slots for delivery opened!")
             no_open_slots = False
             time.sleep(1400)
       except AttributeError:
@@ -39,10 +45,11 @@ def getWFSlot(productUrl):
             print("NO SLOTS!")
       except AttributeError: 
             print('SLOTS OPEN!')
-            os.system('say "Slots for delivery opened!"')
+            sayIt("Slots for delivery opened!")
             no_open_slots = False
 
 
+sayIt("Starting")
 getWFSlot('https://www.amazon.com/gp/buy/shipoptionselect/handlers/display.html?hasWorkingJavascript=1')
 
-
+engine.stop()
