@@ -15,9 +15,9 @@ def getWFSlot(productUrl):
    soup = bs4.BeautifulSoup(html)
    time.sleep(60)
    no_open_slots = True
-
-   duration = 1000
-   milliseconds freq = 440
+	
+	duration = 1000
+	milliseconds freq = 440
 
    while no_open_slots:
       driver.refresh()
@@ -31,8 +31,8 @@ def getWFSlot(productUrl):
          next_slot_text = soup.find('h4', class_ ='ufss-slotgroup-heading-text a-text-normal').text
          if slot_pattern in next_slot_text:
             print('SLOTS OPEN!')
-            winsound.Beep(freq, duration)
-            no_open_slots = False
+				winsound.Beep(freq, duration)
+				no_open_slots = False
             time.sleep(1400)
       except AttributeError:
          continue
@@ -43,7 +43,7 @@ def getWFSlot(productUrl):
             print("NO SLOTS!")
       except AttributeError: 
             print('SLOTS OPEN!')
-            winsound.Beep(freq, duration)
+				winsound.Beep(freq, duration)
             no_open_slots = False
 
 
