@@ -45,4 +45,4 @@ _Walkthrough for Chrome for Whole Foods, follow same steps if running on FireFox
 ![alt text](https://github.com/pcomputo/Whole-Foods-Delivery-Slot/blob/master/instruction_img/step4.png)
 
 > __Screen 5: Leave script running on this screen!__
-![alt text](https://github.com/pcomputo/Whole-Foods-Delivery-Slot/blob/master/instruction_img/step5.png)
+![alt text](https://github.com/pcomputo/Whole-Foods-Delivery-Slot/blob/master/instruction_img/step5_new.png)
