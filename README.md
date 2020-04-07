@@ -56,4 +56,4 @@ Note: This script will AUTOMATICALLY complete your purchase with the first avail
 2. Run whole_foods_delivery_slot_chrome_autobuy.py (``` $ python whole_foods_delivery_slot_chrome_autobuy.py```)
 3. The first time you run this script, Whole Foods cart will ask you to login. After you login, go to the "Shipping and Payment" window. Its titled: _Schedule your order_. Leave the script running, it will automatically detect when you are on the right screen and will tell you that it's refreshing.
 4. Get a nice warm Tea, browse reddit, do something on Xbox, etc.
-5. Once a slot opens the script will verbally notify you of an open slot and complete the purchase using the first available slot. It will also optionally notify you via Slack, SMS or IFTTT
+5. Once a slot opens the script will verbally notify you of an open slot and complete the purchase using the first available slot. It will also optionally notify you via Slack, SMS or IFTTT.
