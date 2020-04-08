@@ -46,3 +46,6 @@ _Walkthrough for Chrome for Whole Foods, follow same steps if running on FireFox
 
 > __Screen 5: Leave script running on this screen!__
 ![alt text](https://github.com/pcomputo/Whole-Foods-Delivery-Slot/blob/master/instruction_img/step5_new.png)
+
+For people with no background with coding there is this amazing post out there:
+https://www.notion.so/using-pcomputo-s-script-to-find-whole-foods-delivery-slots-acbb6d71ef934da7b6822b1df451a11c
