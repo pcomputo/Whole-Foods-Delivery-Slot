@@ -5,7 +5,9 @@ import requests
 import json
 import config
 import socket
+import chromedriver_binary
 
+from tkinter import messagebox
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
@@ -45,6 +47,9 @@ def send_slack_notification():
     response = requests.post(wekbook_url, data=json.dumps(
         data), headers={'Content-Type': 'application/json'})
     return response
+
+def show_message_box():
+    messagebox.showinfo("Amazon Purchase Completed", "Amazon purchase has completed successfully")
 
 def getWFSlot(productUrl):
     # create webdriver object
@@ -87,8 +92,6 @@ def getWFSlot(productUrl):
                         (By.XPATH, "//button[@class='a-button-text ufss-slot-toggle-native-button']")
                         ))
                     slot_button.click()
- 
-                    os.system('say "Time slot found. Completing purchase."')
                 except:
                     print("slot button not clickable")
                     continue
@@ -139,6 +142,9 @@ def getWFSlot(productUrl):
                     if config.notifications['ifttt']:
                         print('sending ifttt notification')
                         send_ifttt()
+                    if config.notifications['message_box']:
+                        print('displaying visual notification')
+                        show_message_box()
                 else:
                     print("Purchasing disabled. Please complete purchase manually.")
 

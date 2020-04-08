@@ -3,3 +3,4 @@ venv3
 settings.json
 *.pyc
 .vscode
+debug.log

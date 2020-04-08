@@ -8,7 +8,8 @@ enable_purchase = True
 notifications = {
     'slack': False,
     'ifttt': False,
-    'twilio_sms': False
+    'twilio_sms': False,
+    'message_box': True
 }
 
 # for ifttt URL and config instructions click the "Documentation" link on this page: https://ifttt.com/maker_webhooks
