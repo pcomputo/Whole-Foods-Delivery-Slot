@@ -48,10 +48,10 @@ def send_slack_notification():
 def getWFSlot(productUrl):
     # create webdriver object and fetch URL
     chrome_options = Options()
-    chrome_options.add_experimental_option("debuggerAddress", "127.0.0.1:9222")
+    # chrome_options.add_experimental_option("debuggerAddress", "127.0.0.1:9222")
 
     driver = webdriver.Chrome(options=chrome_options)
-    # driver.get(productUrl)
+    driver.get(productUrl)
     
     no_open_slots = True
 
