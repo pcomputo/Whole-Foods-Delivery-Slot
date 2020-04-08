@@ -22,16 +22,28 @@ def getWFSlot(productUrl):
       soup = bs4.BeautifulSoup(html)
       time.sleep(4)
 
-      slot_pattern = 'Next available'
+      slot_patterns = ['Next available', '1-hour delivery windows', '2-hour delivery windows']
       try:
          next_slot_text = soup.find('h4', class_ ='ufss-slotgroup-heading-text a-text-normal').text
-         if slot_pattern in next_slot_text:
+         if any(next_slot_text in slot_pattern for slot_pattern in slot_patterns):
             print('SLOTS OPEN!')
             os.system('say "Slots for delivery opened!"')
             no_open_slots = False
             time.sleep(1400)
       except AttributeError:
-         continue
+         pass
+
+      try:
+         slot_opened_text = "Not available"
+         all_dates = soup.findAll("div", {"class": "ufss-date-select-toggle-text-availability"})
+         for each_date in all_dates:
+            if slot_opened_text not in each_date.text:
+               print('SLOTS OPEN!')
+               os.system('say "Slots for delivery opened!"')
+               no_open_slots = False
+               time.sleep(1400)
+      except AttributeError:
+         pass
 
       try:
          no_slot_pattern = 'No delivery windows available. New windows are released throughout the day.'
