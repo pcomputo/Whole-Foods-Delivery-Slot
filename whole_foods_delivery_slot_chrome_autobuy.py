@@ -4,6 +4,7 @@ import os
 import requests
 import json
 import config
+import socket
 
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
@@ -46,10 +47,23 @@ def send_slack_notification():
     return response
 
 def getWFSlot(productUrl):
-    # create webdriver object and fetch URL
+    # create webdriver object
     chrome_options = Options()
-    # chrome_options.add_experimental_option("debuggerAddress", "127.0.0.1:9222")
+    
+    # create socket object
+    a_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
+    # check to see if chrome is running in remote debugging mode
+    location = ("127.0.0.1", 9222)
+    result_of_check = a_socket.connect_ex(location)
+
+    if result_of_check == 0:
+        chrome_options.add_experimental_option("debuggerAddress", "127.0.0.1:9222")
+
+    # close socket object
+    a_socket.close()
+
+    # config webdriver and fetch product URL
     driver = webdriver.Chrome(options=chrome_options)
     driver.get(productUrl)
     
