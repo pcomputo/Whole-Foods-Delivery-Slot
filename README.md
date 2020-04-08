@@ -34,6 +34,12 @@ _Walkthrough for Chrome for Whole Foods, follow same steps if running on FireFox
 4. Once a slot opens the script will verbally notify you of an open slot.
 5. Proceed to checkout once you select a time slot. Stay Safe!
 
+### Non-coding background help:
+For people with no background with coding there is this amazing post out there:
+https://www.notion.so/using-pcomputo-s-script-to-find-whole-foods-delivery-slots-acbb6d71ef934da7b6822b1df451a11c
+
+### Visual Aid
+
 > __Screen 1__
 ![alt text](https://github.com/pcomputo/Whole-Foods-Delivery-Slot/blob/master/instruction_img/step1.png)
 

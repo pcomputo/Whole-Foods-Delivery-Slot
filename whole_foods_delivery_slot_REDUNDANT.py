@@ -1,7 +1,6 @@
 import bs4
 
 from selenium import webdriver
-from selenium.common.exceptions import NoSuchElementException
 
 import sys
 import time
@@ -17,7 +16,7 @@ def getWFSlot(productUrl):
    driver.get(productUrl)           
    html = driver.page_source
    soup = bs4.BeautifulSoup(html)
-   time.sleep(60)
+   time.sleep(80)
    no_open_slots = True
 
    while no_open_slots:
@@ -25,38 +24,27 @@ def getWFSlot(productUrl):
       print("refreshed")
       html = driver.page_source
       soup = bs4.BeautifulSoup(html)
-      time.sleep(2)
+      time.sleep(4)
 
-      no_open_slots = "No doorstep delivery windows are available for"
+      slot_pattern = 'Next available'
       try:
-         no_slots_from_web = driver.find_element_by_xpath('/html/body/div[5]/div/div/div[2]/div/div/form/div[3]/div[4]/div/div[2]/div[2]/div[6]/div/div[2]/div/div[2]/div/div[20]/div[1]/div[1]/div/div/div/span').text
-         if no_open_slots in no_slots_from_web:
-            pass
-         else:
-            print('SLOTS OPEN!')
-            os.system('say "Slots for delivery opened!"')
-            no_open_slots = False
-            time.sleep(1400)
-      except NoSuchElementException:
-         print('SLOTS OPEN!')
-         os.system('say "Slots for delivery opened!"')
-         no_open_slots = False
-         time.sleep(1400)
-
-
-      try:
-         open_slots = soup.find('div', class_ ='orderSlotExists').text()
-         if open_slots != "false":
+         next_slot_text = soup.find('h4', class_ ='ufss-slotgroup-heading-text a-text-normal').text
+         if slot_pattern in next_slot_text:
             print('SLOTS OPEN!')
             os.system('say "Slots for delivery opened!"')
             no_open_slots = False
             time.sleep(1400)
       except AttributeError:
-         pass
+         continue
 
-      
-
-      
+      try:
+         no_slot_pattern = 'No delivery windows available. New windows are released throughout the day.'
+         if no_slot_pattern == soup.find('h4', class_ ='a-alert-heading').text:
+            print("NO SLOTS!")
+      except AttributeError: 
+            print('SLOTS OPEN!')
+            os.system('say "Slots for delivery opened!"')
+            no_open_slots = False
 
 
 getWFSlot('https://www.amazon.com/gp/buy/shipoptionselect/handlers/display.html?hasWorkingJavascript=1')
