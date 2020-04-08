@@ -23,7 +23,7 @@ def getWFSlot(productUrl):
       driver.refresh()
       print("refreshed")
       html = driver.page_source
-      soup = bs4.BeautifulSoup(html)
+      soup = bs4.BeautifulSoup(html, 'html.parser')
       time.sleep(2)
 
       try:
