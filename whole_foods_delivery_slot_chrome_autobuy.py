@@ -48,10 +48,10 @@ def send_slack_notification():
 def getWFSlot(productUrl):
     # create webdriver object and fetch URL
     chrome_options = Options()
-    # chrome_options.add_experimental_option("debuggerAddress", "127.0.0.1:9222")
+    chrome_options.add_experimental_option("debuggerAddress", "127.0.0.1:9222")
 
     driver = webdriver.Chrome(options=chrome_options)
-    driver.get(productUrl)
+    # driver.get(productUrl)
     
     no_open_slots = True
 
@@ -64,17 +64,40 @@ def getWFSlot(productUrl):
             time.sleep(config.interval)
         
         try:
+            time.sleep(1) # wait 1 second for page to fully load     
+            
             # search for delivery slot buttons, select first one, then click continue
-            slot_button = driver.find_elements_by_xpath("//button[@class='a-button-text ufss-slot-toggle-native-button']")[0]
-            slot_button.click()
-            continue_button = driver.find_elements_by_xpath("//input[@class='a-button-input' and @type='submit']")[0]
-            continue_button.click()
+            if driver.find_elements_by_xpath("//button[@class='a-button-text ufss-slot-toggle-native-button']"):
+                try:
+                    slot_button = WebDriverWait(driver, 10).until(EC.element_to_be_clickable(
+                        (By.XPATH, "//button[@class='a-button-text ufss-slot-toggle-native-button']")
+                        ))
+                    slot_button.click()
+ 
+                    os.system('say "Time slot found. Completing purchase."')
+                except:
+                    print("slot button not clickable")
+                    continue
+                
+                try:
+                    continue_button = WebDriverWait(driver, 10).until(EC.element_to_be_clickable(
+                        (By.XPATH, "//input[@class='a-button-input' and @type='submit']")
+                        ))
+                    continue_button.click()
+                except:
+                    print("continue button not clickable")
+                    continue
 
-            # play alert sound if p
-            os.system('say "Time slots available. Completing purchase."')
+            else:
+                # if no slots found, wait specified interval before refreshing page and restarting loop
+                print(f"No slots found, waiting {config.interval} seconds...", end = "")
+                time.sleep(config.interval)
+                driver.refresh()
+                print("refreshing.")
+                continue
 
             # click continue if intermediate purchase window shows up
-            try:        
+            try:
                 top_continue_button = WebDriverWait(driver, 5).until(EC.visibility_of_element_located(
                     (By.XPATH, "//input[@class='a-button-text ' and @type='submit']")
                     ))
@@ -83,7 +106,8 @@ def getWFSlot(productUrl):
                 print("intermediate page not loaded, checking for purchase button")
 
             # place order
-            try:        
+            try:
+                # time.sleep(1) # wait 1 second for page to fully load     
                 place_order_button = WebDriverWait(driver, 5).until(EC.visibility_of_element_located(
                     (By.XPATH, "//input[@class='a-button-text place-your-order-button']")
                     ))
@@ -114,14 +138,8 @@ def getWFSlot(productUrl):
                 print("Error occured, cannot place order.")      
                 time.sleep(3600)     
             
-        except IndexError:
-            # if no slots found, do nothing
-            print(f"No slots found, waiting {config.interval} seconds...", end = "")
-
-        # refresh the page, update soup object, wait specified time before next check
-        time.sleep(config.interval)
-        driver.refresh()
-        print("refreshing.")
+        except:
+            print("Uncaught exception in main loop. Cannot continue.")
 
 getWFSlot('https://www.amazon.com/gp/buy/shipoptionselect/handlers/display.html?hasWorkingJavascript=1')
 
