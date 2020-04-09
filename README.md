@@ -45,8 +45,8 @@ _Walkthrough for Chrome for Whole Foods, follow same steps if running on FireFox
 6. Proceed to checkout once you select a time slot. Stay Safe!
 
 # Non-coding background help:
-For people with no background with coding there is this amazing post out there:
-https://www.notion.so/using-pcomputo-s-script-to-find-whole-foods-delivery-slots-acbb6d71ef934da7b6822b1df451a11c
+For people with no background with coding there is this [amazing post out there](https://www.notion.so/using-pcomputo-s-script-to-find-whole-foods-delivery-slots-acbb6d71ef934da7b6822b1df451a11c). 
+
 _Note, I haven't written this blog, but I'd like to thank the person (don't who they are) who wrote it._
 
 # Visual Aid
