@@ -61,7 +61,7 @@ def autoCheckout(driver):
    except NoSuchElementException:
       print("Found a slot but it got taken, run script again.")
       os.system('say "Found a slot but it got taken, run script again."')
-      #time.sleep(1400)
+      time.sleep(1400)
 
 def getWFSlot(productUrl):
    headers = {
