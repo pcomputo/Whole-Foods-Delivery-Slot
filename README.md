@@ -1,3 +1,10 @@
+- [Whole Foods and Amazon Fresh Delivery Slot Automated Script](#whole-foods-and-amazon-fresh-delivery-slot-automated-script)
+  * [Usage:](#usage)
+    + [Autobuy feature:](#autobuy-feature)
+    + [After you clone the project:](#after-you-clone-the-project)
+ - [Non-coding background help:](#non-coding-background-help)
+ - [Visual Aid](#visual-aid)
+
 # Whole Foods and Amazon Fresh Delivery Slot Automated Script
 
 Yes, amid COVID-19 trying to get Whole Foods and Amazon Fresh delivery slots can get cumbersome. To free you off the constant hassle of checking for slots (and almost never finding one), this automated script can notify you (yes notifies you verbally, so you can go about your tasks) of when new delivery slots open.
@@ -37,11 +44,11 @@ _Walkthrough for Chrome for Whole Foods, follow same steps if running on FireFox
 5. Once a slot opens the script will verbally notify you of an open slot.
 6. Proceed to checkout once you select a time slot. Stay Safe!
 
-### Non-coding background help:
+# Non-coding background help:
 For people with no background with coding there is this amazing post out there:
 https://www.notion.so/using-pcomputo-s-script-to-find-whole-foods-delivery-slots-acbb6d71ef934da7b6822b1df451a11c
 
-### Visual Aid
+# Visual Aid
 
 > __Screen 1__
 ![alt text](https://github.com/pcomputo/Whole-Foods-Delivery-Slot/blob/master/instruction_img/step1.png)
