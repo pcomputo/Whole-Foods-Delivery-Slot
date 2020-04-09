@@ -18,16 +18,15 @@ from twilio.rest import Client
 def send_ifttt():
     
     report = {}
-    report["value1"] = "Amazon order placed"
+    report["value1"] = "Whole Foods order has been placed!"
     requests.post(config.ifttt['webhook'], data=report)
-
 
 def send_sms():
     client = Client(config.twilio['account_sid'], config.twilio['auth_token'])
 
     message = client.messages \
                     .create(
-                        body="Amazon order placed!",
+                        body="Whole Foods order has been placed!",
                         from_=config.twilio['twilio_number'],
                         to=config.twilio['cell_number']
                     )
@@ -39,7 +38,7 @@ def send_slack_notification():
     wekbook_url = config.slack['webhook']
 
     data = {
-        'text': 'Amazon order has been placed!',
+        'text': 'Whole Foods order has been placed!',
         'username': config.slack['username'],
         'icon_emoji': ':robot_face:'
     }
@@ -49,7 +48,7 @@ def send_slack_notification():
     return response
 
 def show_message_box():
-    messagebox.showinfo("Amazon Purchase Completed", "Amazon purchase has completed successfully")
+    messagebox.showinfo("Purchase Completed", "Whole Foods purchase completed successfully")
 
 def getWFSlot(productUrl):
     # create webdriver object
@@ -115,7 +114,7 @@ def getWFSlot(productUrl):
 
             # click continue if intermediate purchase window shows up
             try:
-                top_continue_button = WebDriverWait(driver, 5).until(EC.visibility_of_element_located(
+                top_continue_button = WebDriverWait(driver, 5).until(EC.element_to_be_clickable(
                     (By.XPATH, "//input[@class='a-button-text ' and @type='submit']")
                     ))
                 top_continue_button.click()
@@ -125,7 +124,7 @@ def getWFSlot(productUrl):
             # place order
             try:
                 # time.sleep(1) # wait 1 second for page to fully load     
-                place_order_button = WebDriverWait(driver, 5).until(EC.visibility_of_element_located(
+                place_order_button = WebDriverWait(driver, 5).until(EC.element_to_be_clickable(
                     (By.XPATH, "//input[@class='a-button-text place-your-order-button']")
                     ))
                 if config.enable_purchase:
@@ -153,13 +152,15 @@ def getWFSlot(productUrl):
                 time.sleep(3600)
                 driver.quit()
                 exit(0)
-            except:
-                # if error, sleep for an hour
-                print("Error occured, cannot place order.")      
+            except Exception as ex:
+                # if error, sleep for an hour in case the session can be manually recovered
+                print("The following exception occured, cannot place order.")
+                print(ex)     
                 time.sleep(3600)     
             
-        except:
-            print("Uncaught exception in main loop. Cannot continue.")
+        except Exception as ex:
+            print("The following exception occured in the main loop. Cannot continue.")
+            print(ex)     
 
 getWFSlot('https://www.amazon.com/gp/buy/shipoptionselect/handlers/display.html?hasWorkingJavascript=1')
 
