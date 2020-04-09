@@ -32,7 +32,7 @@ def getWFSlot(productUrl):
       soup = bs4.BeautifulSoup(html)
       time.sleep(4)
 
-      slot_pattern = 'Next available'
+      slot_patterns = ['Next available', '1-hour delivery windows', '2-hour delivery windows']
       try:
          next_slot_text = soup.find('h4', class_ ='ufss-slotgroup-heading-text a-text-normal').text
          if slot_pattern in next_slot_text:
