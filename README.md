@@ -6,9 +6,14 @@ Yes, amid COVID-19 trying to get Whole Foods and Amazon Fresh delivery slots can
 ## Usage:
 Supports **MacOS, Linux, and Windows**.
 
+The script works on **Chrome** (```whole_foods_delivery_slot_chrome.py``` for Whole Foods) (```amazon_fresh_delivery_slot_chrome.py``` for Amazon Fresh) and **FireFox** (```whole_foods_delivery_slot_firefox.py```) for now. This does not support "Autobuy feature".
+
 Note, use the ```whole_foods_delivery_windows.py``` for Windows. Also, only for this OS, you'll have to install an additional package ```winsound```
 
-The script works on **Chrome** (```whole_foods_delivery_slot_chrome.py``` for Whole Foods) (```amazon_fresh_delivery_slot_chrome.py``` for Amazon Fresh) and **FireFox** (```whole_foods_delivery_slot_firefox.py```) for now. 
+### Autobuy feature:
+
+If you'd like the script to select the first available time, and proceed all the way through checkout, please use the ```whole_foods_delivery_autobuy.py```. 
+ 
 It initializes a  webdriver, for which if you don't have one install it from: https://chromedriver.chromium.org/ for Chrome and https://github.com/mozilla/geckodriver/releases for FireFox.
 
 You'll have to update the path of the this installed webdriver under: ```python driver = webdriver.Chrome()``` if its not the default location your OS needs. Similarly, for FireFox ```python driver = webdriver.Firefox(executable_path="<your-webdriver-path>")```
