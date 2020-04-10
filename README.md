@@ -4,6 +4,8 @@
     + [After you clone the project:](#after-you-clone-the-project)
  - [Non-coding background help:](#non-coding-background-help)
  - [Visual Aid](#visual-aid)
+ - [FAQ](#faq)
+   * [Say is not a recognized command](#say-is-not-a-recognized-command)
 
 # Whole Foods and Amazon Fresh Delivery Slot Automated Script
 
@@ -65,5 +67,22 @@ _Note, I haven't written this blog, but I'd like to thank the person (don't who 
 
 > __Screen 5: Leave script running on this screen!__
 ![alt text](https://github.com/pcomputo/Whole-Foods-Delivery-Slot/blob/master/instruction_img/step5_new.png)
+
+# FAQ
+## say is not a recognized command
+If say is not native to your OS. Please try using winsound. Comment/delete the code in the script that has `os.system('say...')` and incorporate the following snippet:
+
+`import winsound`
+
+`duration = 1000`
+
+`freq = 440`
+
+~~os.system('say ...')~~
+
+`winsound.Beep(freq, duration)`
+
+As an example, you can look at any of the Windows scripts. Also, there are certain issues in this repository revolving around this issue that have been solved. Please feel to check them out too.
+
 
 
