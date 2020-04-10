@@ -76,7 +76,7 @@ def getWFSlot(productUrl):
       driver.refresh()
       print("refreshed")
       html = driver.page_source
-      soup = bs4.BeautifulSoup(html)
+      soup = bs4.BeautifulSoup(html, "html.parser")
       time.sleep(4)
 
       slot_patterns = ['Next available', '1-hour delivery windows', '2-hour delivery windows']
