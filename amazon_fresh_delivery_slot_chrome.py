@@ -1,6 +1,7 @@
 import bs4
 
 from selenium import webdriver
+from selenium.common.exceptions import NoSuchElementException
 
 import sys
 import time
@@ -32,6 +33,23 @@ def getWFSlot(productUrl):
       soup = bs4.BeautifulSoup(html)
       time.sleep(2)
 
+      no_open_slots = "No doorstep delivery windows are available for"
+      try:
+         no_slots_from_web = driver.find_element_by_xpath('/html/body/div[5]/div/div/div[2]/div/div/form/div[3]/div[4]/div/div[2]/div[2]/div[6]/div/div[2]/div/div[2]/div/div[20]/div[1]/div[1]/div/div/div/span').text
+         if no_open_slots in no_slots_from_web:
+            pass
+         else:
+            print('SLOTS OPEN!')
+            os.system('say "Slots for delivery opened!"')
+            no_open_slots = False
+            time.sleep(1400)
+      except NoSuchElementException:
+         print('SLOTS OPEN!')
+         os.system('say "Slots for delivery opened!"')
+         no_open_slots = False
+         time.sleep(1400)
+
+
       try:
          open_slots = soup.find('div', class_ ='orderSlotExists').text()
          if open_slots != "false":
@@ -40,7 +58,11 @@ def getWFSlot(productUrl):
             no_open_slots = False
             time.sleep(1400)
       except AttributeError:
-         continue
+         pass
+
+      
+
+      
 
 
 sayIt("Starting")
