@@ -70,19 +70,5 @@ _Note, I haven't written this blog, but I'd like to thank the person (don't who 
 
 # FAQ
 ## say is not a recognized command
-If say is not native to your OS. Please try using winsound. Comment/delete the code in the script that has `os.system('say...')` and incorporate the following snippet:
 
-`import winsound`
-
-`duration = 1000`
-
-`freq = 440`
-
-~~os.system('say ...')~~
-
-`winsound.Beep(freq, duration)`
-
-As an example, you can look at any of the Windows scripts. Also, there are certain issues in this repository revolving around this issue that have been solved. Please feel to check them out too.
-
-
-
+This fork uses the [pyttsx3](https://pypi.org/project/pyttsx3/) module, so you shouldn't get a "say is not a recognized command" error as long as [pyttsx3 supports your platform and installed TTS libraries](https://pyttsx3.readthedocs.io/en/latest/support.html).
