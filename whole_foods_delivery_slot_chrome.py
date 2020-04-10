@@ -15,7 +15,7 @@ def getWFSlot(productUrl):
    driver = webdriver.Chrome()
    driver.get(productUrl)           
    html = driver.page_source
-   soup = bs4.BeautifulSoup(html)
+   soup = bs4.BeautifulSoup(html, "html.parser")
    time.sleep(60)
    no_open_slots = True
 
@@ -23,19 +23,8 @@ def getWFSlot(productUrl):
       driver.refresh()
       print("refreshed")
       html = driver.page_source
-      soup = bs4.BeautifulSoup(html)
+      soup = bs4.BeautifulSoup(html, "html.parser")
       time.sleep(4)
-
-      slot_patterns = ['Next available', '1-hour delivery windows', '2-hour delivery windows']
-      try:
-         next_slot_text = soup.find('h4', class_ ='ufss-slotgroup-heading-text a-text-normal').text
-         if any(next_slot_text in slot_pattern for slot_pattern in slot_patterns):
-            print('SLOTS OPEN 1!')
-            os.system('say "Slots for delivery opened!"')
-            no_open_slots = False
-            time.sleep(1400)
-      except AttributeError:
-         pass
 
       try:
          slot_opened_text = "Not available"
@@ -57,6 +46,20 @@ def getWFSlot(productUrl):
             print('SLOTS OPEN 3!')
             os.system('say "Slots for delivery opened!"')
             no_open_slots = False
+
+
+      slot_patterns = ['Next available', '1-hour delivery windows', '2-hour delivery windows']
+      try:
+         next_slot_text = str([x.text for x in soup.findAll('h4', class_ ='ufss-slotgroup-heading-text a-text-normal')])
+         if any(next_slot_text in slot_pattern for slot_pattern in slot_patterns):
+            print('SLOTS OPEN!')
+            winsound.Beep(freq, duration)
+            no_open_slots = False
+
+            autoCheckout(driver)
+            
+      except AttributeError:
+         pass
 
 
 getWFSlot('https://www.amazon.com/gp/buy/shipoptionselect/handlers/display.html?hasWorkingJavascript=1')
