@@ -75,9 +75,10 @@ If say is not native to your OS. Please try using winsound. Comment/delete the c
 `import winsound`
 
 `duration = 1000`
+
 `freq = 440`
 
-`~~os.system('say ...')~~`
+~~os.system('say ...')~~
 `winsound.Beep(freq, duration)`
 
 As an example, you can look at any of the Windows scripts. Also, there are certain issues in this repository revolving around this issue that have been solved. Please feel to check them out too.
