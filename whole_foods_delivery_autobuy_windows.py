@@ -15,6 +15,8 @@ import winsound
 
 def autoCheckout(driver):
    driver = driver
+   duration = 1000
+   freq = 440
    
    time.sleep(4)
    try:
