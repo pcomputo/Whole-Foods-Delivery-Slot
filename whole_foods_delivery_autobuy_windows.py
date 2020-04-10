@@ -10,6 +10,8 @@ import sys
 import time
 import os
 
+import winsound
+
 
 def autoCheckout(driver):
    driver = driver
