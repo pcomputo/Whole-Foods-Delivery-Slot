@@ -28,6 +28,6 @@ twilio = {
 # for slack instructions see https://notes.ayushsharma.in/2017/09/posting-messages-to-slack-using-incoming-webhooks-and-python-requests-api
 slack = {
     'webhook': '<slack webhook URL>',
-    'username': '<slack username>'
+    'username': 'Whole Foods Autobuy Script'
     }
 
