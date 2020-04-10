@@ -16,7 +16,7 @@ import winsound
 def autoCheckout(driver):
    driver = driver
    
-   time.sleep(1)
+   time.sleep(4)
    try:
       slot_select_button = driver.find_element_by_xpath('/html/body/div[5]/div[1]/div/div[2]/div/div/div/div/div[1]/div[4]/div[2]/div/div[3]/div/div/ul/li/span/span/div/div[2]/span/span/button')
       slot_select_button.click()
