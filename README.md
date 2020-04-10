@@ -83,6 +83,6 @@ If say is not native to your OS. Please try using winsound. Comment/delete the c
 `winsound.Beep(freq, duration)`
 
 As an example, you can look at any of the Windows scripts. Also, there are certain issues in this repository revolving around this issue that have been solved. Please feel to check them out too.
-
+Meanwhile, if you'd not like to edit, there is a PR: https://github.com/pcomputo/Whole-Foods-Delivery-Slot/pull/32, you can try to switch to that branch to get audible notifications. I'm in the testing phasing of this PR.
 
 
