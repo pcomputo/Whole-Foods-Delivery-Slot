@@ -15,7 +15,8 @@ def sayIt(textToSay):
    engine.runAndWait()
 
 def getWFSlot(productUrl):
-   driver = webdriver.Firefox(executable_path=r"C:\Users\jason\Downloads\geckodriver-v0.26.0-win64\geckodriver.exe")
+   driver = webdriver.Firefox()
+#   driver = webdriver.Firefox(executable_path=r"C:\Users\jason\Downloads\geckodriver-v0.26.0-win64\geckodriver.exe")
    driver.get(productUrl)           
    html = driver.page_source
    soup = bs4.BeautifulSoup(html)
