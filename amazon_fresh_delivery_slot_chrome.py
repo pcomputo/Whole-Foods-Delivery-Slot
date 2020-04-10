@@ -40,12 +40,12 @@ def getWFSlot(productUrl):
             pass
          else:
             print('SLOTS OPEN!')
-            os.system('say "Slots for delivery opened!"')
+            sayIt("Slots for delivery opened!")
             no_open_slots = False
             time.sleep(1400)
       except NoSuchElementException:
          print('SLOTS OPEN!')
-         os.system('say "Slots for delivery opened!"')
+         sayIt("Slots for delivery opened!")
          no_open_slots = False
          time.sleep(1400)
 
