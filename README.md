@@ -17,8 +17,6 @@ Supports **MacOS, Linux, and Windows**.
 
 The script works on **Chrome** (```whole_foods_delivery_slot_chrome.py``` for Whole Foods) (```amazon_fresh_delivery_slot_chrome.py``` for Amazon Fresh) and **FireFox** (```whole_foods_delivery_slot_firefox.py```) for now. This does not support "Autobuy feature".
 
-Note, use the ```whole_foods_delivery_windows.py``` for Windows. Also, only for this OS, you'll have to install an additional package ```winsound```
-
 ### Autobuy feature:
 
 If you'd like the script to select the first available time, and proceed all the way through checkout, please use the ```whole_foods_delivery_autobuy.py```. 
