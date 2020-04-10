@@ -18,7 +18,7 @@ def getWFSlot(productUrl):
        'User-Agent': 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36',
    }
 
-   driver = webdriver.Chrome()
+   driver = webdriver.Chrome(executable_path=r"C:\Users\jason\Downloads\chromedriver_win32\chromedriver.exe")
    driver.get(productUrl)           
    html = driver.page_source
    soup = bs4.BeautifulSoup(html)
@@ -32,7 +32,7 @@ def getWFSlot(productUrl):
       soup = bs4.BeautifulSoup(html)
       time.sleep(4)
 
-      slot_pattern = 'Next available'
+      slot_patterns = ['Next available', '1-hour delivery windows', '2-hour delivery windows']
       try:
          next_slot_text = soup.find('h4', class_ ='ufss-slotgroup-heading-text a-text-normal').text
          if slot_pattern in next_slot_text:
