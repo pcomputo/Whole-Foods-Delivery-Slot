@@ -1,11 +1,11 @@
 - [Whole Foods and Amazon Fresh Delivery Slot Automated Script](#whole-foods-and-amazon-fresh-delivery-slot-automated-script)
-  * [Usage:](#usage)
-    + [Autobuy feature:](#autobuy-feature)
-    + [After you clone the project:](#after-you-clone-the-project)
- - [Non-coding background help:](#non-coding-background-help)
- - [Visual Aid](#visual-aid)
- - [FAQ](#faq)
-   * [Say is not a recognized command](#say-is-not-a-recognized-command)
+  - [Usage:](#usage)
+    - [Autobuy feature:](#autobuy-feature)
+    - [After you clone the project:](#after-you-clone-the-project)
+- [Non-coding background help:](#non-coding-background-help)
+- [Visual Aid](#visual-aid)
+- [FAQ](#faq)
+  - [say is not a recognized command](#say-is-not-a-recognized-command)
 
 # Whole Foods and Amazon Fresh Delivery Slot Automated Script
 
@@ -15,7 +15,7 @@ Yes, amid COVID-19 trying to get Whole Foods and Amazon Fresh delivery slots can
 ## Usage:
 Supports **MacOS, Linux, and Windows**.
 
-The script works on **Chrome** (```whole_foods_delivery_slot_chrome.py``` for Whole Foods) (```amazon_fresh_delivery_slot_chrome.py``` for Amazon Fresh) and **FireFox** (```whole_foods_delivery_slot_firefox.py```) for now. This does not support "Autobuy feature".
+The script works on **Chrome** (```delivery_slot_chrome.py``` for Whole Foods and Amazon Fresh) and **FireFox** (```whole_foods_delivery_slot_firefox.py``` for Whole Foods) for now.
 
 Note, use the ```whole_foods_delivery_windows.py``` for Windows. Also, only for this OS, you'll have to install an additional package ```winsound```
 
