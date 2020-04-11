@@ -28,7 +28,7 @@ def getWFSlot(productUrl):
 
       slot_pattern = 'Next available'
       try:
-         next_slot_text = soup.find('h4', class_ ='ufss-slotgroup-heading-text a-text-normal').text
+         next_slot_text = str([x.text for x in soup.findAll('h4', class_ ='ufss-slotgroup-heading-text a-text-normal')])
          if slot_pattern in next_slot_text:
             print('SLOTS OPEN!')
             winsound.Beep(freq, duration)
@@ -39,7 +39,7 @@ def getWFSlot(productUrl):
 
       try:
          no_slot_pattern = 'No delivery windows available. New windows are released throughout the day.'
-         if no_slot_pattern == soup.find('h4', class_ ='a-alert-heading').text:
+         if no_slot_pattern in [x.text for x in soup.findAll('h4', class_ ='a-alert-heading')]:
             print("NO SLOTS!")
       except AttributeError: 
             print('SLOTS OPEN!')
