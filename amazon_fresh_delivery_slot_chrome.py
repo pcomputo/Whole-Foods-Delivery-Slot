@@ -54,7 +54,7 @@ def getWFSlot(productUrl):
          open_slots = soup.find('div', class_ ='orderSlotExists').text()
          if open_slots != "false":
             print('SLOTS OPEN!')
-            sayIt("Slots for delivery opened!"
+            sayIt("Slots for delivery opened!")
             no_open_slots = False
             time.sleep(1400)
       except AttributeError:
