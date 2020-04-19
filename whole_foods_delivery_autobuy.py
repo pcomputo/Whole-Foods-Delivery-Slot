@@ -20,15 +20,21 @@ def sayIt(textToSay):
 def autoCheckout(driver):
    driver = driver
 
-   #time.sleep(1)
-   time.sleep(4)
+   time.sleep(1)
+   driver.execute_script("window.scrollTo(0, 200)") 
+   #time.sleep(4)
    try:
       slot_select_button = driver.find_element_by_xpath('/html/body/div[5]/div[1]/div/div[2]/div/div/div/div/div[1]/div[4]/div[2]/div/div[3]/div/div/ul/li/span/span/div/div[2]/span/span/button')
+      #slot_select_button = driver.find_element_by_class('a-button-text ufss-slot-toggle-native-button')
       slot_select_button.click()
       print("Clicked open slot")
    except NoSuchElementException:
-      slot_select_button = driver.find_element_by_xpath('/html/body/div[5]/div[1]/div/div[2]/div/div/div/div/div[1]/div[4]/div[2]/div/div[4]/div/div/ul/li/span/span/div/div[2]/span/span/button')
-      slot_select_button.click()
+      try:
+         slot_select_button = driver.find_element_by_xpath('/html/body/div[5]/div[1]/div/div[2]/div/div/div/div/div[1]/div[4]/div[2]/div/div[4]/div/div/ul/li/span/span/div/div[2]/span/span/button')
+         slot_select_button.click()
+      except NoSuchElementException:
+         print("Found a slot but it got taken, run script again.")
+         os.system('say "Found a slot but it got taken, run script again."')
 
    slot_continue_button = driver.find_element_by_xpath('/html/body/div[5]/div[1]/div/div[2]/div/div/div/div/div[2]/div[3]/div/span/span/span/input')
    slot_continue_button.click()
@@ -44,8 +50,8 @@ def autoCheckout(driver):
       pass
 
    try:
-      #time.sleep(4)
-      time.sleep(6)
+      time.sleep(4)
+      #time.sleep(6)
       payment_select_continue = driver.find_element_by_xpath('/html/body/div[5]/div[1]/div[2]/div[2]/div[4]/div/form/div[3]/div[1]/div[2]/div/div/div/div[1]/span/span/input')
       payment_select_continue.click()
       print("Payment method selected")
@@ -54,11 +60,11 @@ def autoCheckout(driver):
       #time.sleep(4)
       time.sleep(6)
       try:
-         #review_select_continue = driver.find_element_by_xpath('/html/body/div[5]/div[1]/div[2]/form/div/div/div/div[2]/div/div[1]/div/div[1]/div/span/span/input')
+         review_select_continue = driver.find_element_by_xpath('/html/body/div[5]/div[1]/div[2]/form/div/div/div/div[2]/div/div[1]/div/div[1]/div/span/span/input')
          review_select_continue.click()
          print("Order reviewed")
       except NoSuchElementException:
-         #review_select_continue = driver.find_element_by_xpath('/html/body/div[5]/div[1]/div[2]/form/div/div/div/div[2]/div[2]/div/div[1]/span/span/input')
+         review_select_continue = driver.find_element_by_xpath('/html/body/div[5]/div[1]/div[2]/form/div/div/div/div[2]/div[2]/div/div[1]/span/span/input')
          review_select_continue.click()
          print("Order reviewed")
 
@@ -87,12 +93,25 @@ def getWFSlot(productUrl):
       soup = bs4.BeautifulSoup(html, "html.parser")
       time.sleep(4)
 
+      slot_patterns = ['Next available', '1-hour delivery windows', '2-hour delivery windows']
+      try:
+         next_slot_text = str([x.text for x in soup.findAll('h4', class_ ='ufss-slotgroup-heading-text a-text-normal')])
+         if any(next_slot_text in slot_pattern for slot_pattern in slot_patterns):
+            print('SLOTS OPEN! 1')
+            no_open_slots = False
+            os.system('say "Slots for delivery opened!"')
+            autoCheckout(driver)
+            
+      except AttributeError:
+         pass
+
+
       try:
          slot_opened_text = "Not available"
          all_dates = soup.findAll("div", {"class": "ufss-date-select-toggle-text-availability"})
          for each_date in all_dates:
             if slot_opened_text not in each_date.text:
-               print('SLOTS OPEN!')
+               print('SLOTS OPEN! 2')
                sayIt("Slots for delivery opened!")
                no_open_slots = False
                autoCheckout(driver)
@@ -111,21 +130,9 @@ def getWFSlot(productUrl):
 
             autoCheckout(driver)
 
-      slot_patterns = ['Next available', '1-hour delivery windows', '2-hour delivery windows']
-      try:
-         next_slot_text = str([x.text for x in soup.findAll('h4', class_ ='ufss-slotgroup-heading-text a-text-normal')])
-         if any(next_slot_text in slot_pattern for slot_pattern in slot_patterns):
-            print('SLOTS OPEN!')
-            winsound.Beep(freq, duration)
-            no_open_slots = False
-
-            autoCheckout(driver)
-            
-      except AttributeError:
-         pass
-
 
 sayIt("Starting")
+
 getWFSlot('https://www.amazon.com/gp/buy/shipoptionselect/handlers/display.html?hasWorkingJavascript=1')
 
 engine.stop()
