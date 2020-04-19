@@ -9,15 +9,13 @@
 
 # Whole Foods and Amazon Fresh Delivery Slot Automated Script
 
-Yes, amid COVID-19 trying to get Whole Foods and Amazon Fresh delivery slots can get cumbersome. To free you off the constant hassle of checking for slots (and almost never finding one), this automated script can notify you (yes notifies you verbally, so you can go about your tasks) of when new delivery slots open.
+Yes, amid COVID-19 trying to get Whole Foods and Amazon Fresh delivery slots can get cumbersome. To free you of the constant hassle of checking for slots (and almost never finding one), this automated script can notify you (yes notifies you verbally, so you can go about your tasks) of when new delivery slots open.
 
 
 ## Usage:
 Supports **MacOS, Linux, and Windows**.
 
 The script works on **Chrome** (```whole_foods_delivery_slot_chrome.py``` for Whole Foods) (```amazon_fresh_delivery_slot_chrome.py``` for Amazon Fresh) and **FireFox** (```whole_foods_delivery_slot_firefox.py```) for now. This does not support "Autobuy feature".
-
-Note, use the ```whole_foods_delivery_windows.py``` for Windows. Also, only for this OS, you'll have to install an additional package ```winsound```
 
 ### Autobuy feature:
 
@@ -70,19 +68,5 @@ _Note, I haven't written this blog, but I'd like to thank the person (don't who 
 
 # FAQ
 ## say is not a recognized command
-If say is not native to your OS. Please try using winsound. Comment/delete the code in the script that has `os.system('say...')` and incorporate the following snippet:
 
-`import winsound`
-
-`duration = 1000`
-
-`freq = 440`
-
-~~os.system('say ...')~~
-
-`winsound.Beep(freq, duration)`
-
-As an example, you can look at any of the Windows scripts. Also, there are certain issues in this repository revolving around this issue that have been solved. Please feel to check them out too.
-Meanwhile, if you'd not like to edit, there is a PR: https://github.com/pcomputo/Whole-Foods-Delivery-Slot/pull/32, you can try to switch to that branch to get audible notifications. I'm in the testing phasing of this PR.
-
-
+This fork uses the [pyttsx3](https://pypi.org/project/pyttsx3/) module, so you shouldn't get a "say is not a recognized command" error as long as [pyttsx3 supports your platform and installed TTS libraries](https://pyttsx3.readthedocs.io/en/latest/support.html).

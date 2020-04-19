@@ -9,7 +9,13 @@ from selenium.webdriver.common.by import By
 import sys
 import time
 import os
+import pyttsx3
 
+engine = pyttsx3.init() # object creation
+
+def sayIt(textToSay):
+   engine.say(textToSay)
+   engine.runAndWait()
 
 def autoCheckout(driver):
    driver = driver
@@ -62,11 +68,9 @@ def autoCheckout(driver):
          review_select_continue.click()
          print("Order reviewed")
 
-      print("Order Placed!")
-      os.system('say "Order Placed!"')
+      sayIt("Order Placed!")
    except NoSuchElementException:
-      print("Found a slot but it got taken, run script again.")
-      os.system('say "Found a slot but it got taken, run script again."')
+      sayIt("Found a slot but it got taken, run script again.")
       time.sleep(1400)
 
 def getWFSlot(productUrl):
@@ -108,7 +112,7 @@ def getWFSlot(productUrl):
          for each_date in all_dates:
             if slot_opened_text not in each_date.text:
                print('SLOTS OPEN! 2')
-               os.system('say "Slots for delivery opened!"')
+               sayIt("Slots for delivery opened!")
                no_open_slots = False
                autoCheckout(driver)
 
@@ -121,12 +125,14 @@ def getWFSlot(productUrl):
             print("NO SLOTS!")
       except AttributeError: 
             print('SLOTS OPEN!')
-            os.system('say "Slots for delivery opened!"')
+            sayIt("Slots for delivery opened!")
             no_open_slots = False
 
             autoCheckout(driver)
 
 
+sayIt("Starting")
+
 getWFSlot('https://www.amazon.com/gp/buy/shipoptionselect/handlers/display.html?hasWorkingJavascript=1')
 
-
+engine.stop()

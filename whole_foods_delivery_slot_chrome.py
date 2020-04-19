@@ -5,7 +5,13 @@ from selenium import webdriver
 import sys
 import time
 import os
+import pyttsx3
 
+engine = pyttsx3.init() # object creation
+
+def sayIt(textToSay):
+   engine.say(textToSay)
+   engine.runAndWait()
 
 def getWFSlot(productUrl):
    headers = {
@@ -13,6 +19,7 @@ def getWFSlot(productUrl):
    }
 
    driver = webdriver.Chrome()
+#   driver = webdriver.Chrome(executable_path=r"C:\Users\jason\Downloads\chromedriver_win32\chromedriver.exe")
    driver.get(productUrl)           
    html = driver.page_source
    soup = bs4.BeautifulSoup(html, "html.parser")
@@ -32,7 +39,7 @@ def getWFSlot(productUrl):
          for each_date in all_dates:
             if slot_opened_text not in each_date.text:
                print('SLOTS OPEN 2!')
-               os.system('say "Slots for delivery opened!"')
+               sayIt("Slots for delivery opened!")
                no_open_slots = False
                time.sleep(1400)
       except AttributeError:
@@ -44,7 +51,7 @@ def getWFSlot(productUrl):
             print("NO SLOTS!")
       except AttributeError: 
             print('SLOTS OPEN 3!')
-            os.system('say "Slots for delivery opened!"')
+            sayIt("Slots for delivery opened!")
             no_open_slots = False
 
 
@@ -53,7 +60,7 @@ def getWFSlot(productUrl):
          next_slot_text = str([x.text for x in soup.findAll('h4', class_ ='ufss-slotgroup-heading-text a-text-normal')])
          if any(next_slot_text in slot_pattern for slot_pattern in slot_patterns):
             print('SLOTS OPEN!')
-            winsound.Beep(freq, duration)
+            sayIt("Slots for delivery opened!")
             no_open_slots = False
 
             autoCheckout(driver)
@@ -62,6 +69,7 @@ def getWFSlot(productUrl):
          pass
 
 
+sayIt("Starting")
 getWFSlot('https://www.amazon.com/gp/buy/shipoptionselect/handlers/display.html?hasWorkingJavascript=1')
 
-
+engine.stop()

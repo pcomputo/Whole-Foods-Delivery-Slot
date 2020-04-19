@@ -5,10 +5,18 @@ from selenium import webdriver
 import sys
 import time
 import os
+import winsound
+import pyttsx3
 
+engine = pyttsx3.init() # object creation
+
+def sayIt(textToSay):
+   engine.say(textToSay)
+   engine.runAndWait()
 
 def getWFSlot(productUrl):
    driver = webdriver.Firefox()
+#   driver = webdriver.Firefox(executable_path=r"C:\Users\jason\Downloads\geckodriver-v0.26.0-win64\geckodriver.exe")
    driver.get(productUrl)           
    html = driver.page_source
    soup = bs4.BeautifulSoup(html)
@@ -27,7 +35,7 @@ def getWFSlot(productUrl):
          next_slot_text = soup.find('h4', class_ ='ufss-slotgroup-heading-text a-text-normal').text
          if any(next_slot_text in slot_pattern for slot_pattern in slot_patterns):
             print('SLOTS OPEN!')
-            os.system('say "Slots for delivery opened!"')
+            sayIt("Slots for delivery opened!")
             no_open_slots = False
             time.sleep(1400)
       except AttributeError:
@@ -39,7 +47,7 @@ def getWFSlot(productUrl):
          for each_date in all_dates:
             if slot_opened_text not in each_date.text:
                print('SLOTS OPEN!')
-               os.system('say "Slots for delivery opened!"')
+               sayIt("Slots for delivery opened!")
                no_open_slots = False
                time.sleep(1400)
       except AttributeError:
@@ -51,10 +59,10 @@ def getWFSlot(productUrl):
             print("NO SLOTS!")
       except AttributeError: 
             print('SLOTS OPEN!')
-            os.system('say "Slots for delivery opened!"')
+            sayIt("Slots for delivery opened!")
             no_open_slots = False
 
-
+sayIt("Starting")
 getWFSlot('https://www.amazon.com/gp/buy/shipoptionselect/handlers/display.html?hasWorkingJavascript=1')
 
-
+engine.stop()
