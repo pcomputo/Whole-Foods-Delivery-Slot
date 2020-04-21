@@ -43,9 +43,9 @@ def autoCheckout(driver):
    print("Selected slot and continued to next page")
    
    try:
-      #time.sleep(4)
-      time.sleep(6)
-      outofstock_select_continue = driver.find_element_by_xpath('/html/body/div[5]/div/form/div[25]/div/div/span/span/input')
+      time.sleep(4)
+      #time.sleep(6)
+      outofstock_select_continue = driver.find_element_by_css_selector('[class="a-button-text"]').click()
       outofstock_select_continue.click()
       print("Passed out of stock")
    except NoSuchElementException:
