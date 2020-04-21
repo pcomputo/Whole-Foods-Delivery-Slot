@@ -64,7 +64,6 @@ def autoCheckout(driver):
       time.sleep(6)
       try:
          review_select_continue = driver.find_element_by_xpath('/html/body/div[5]/div[1]/div[2]/form/div/div/div/div[2]/div/div[1]/div/div[1]/div/span/span/input')
-         review_select_continue = driver.find_element_by_xpath('')
          review_select_continue.click()
          print("Order reviewed")
       except NoSuchElementException:
