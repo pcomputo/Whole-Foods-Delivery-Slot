@@ -33,19 +33,25 @@ def autoCheckout(driver):
          print("Found a slot but it got taken, run script again.")
          os.system('say "Found a slot but it got taken, run script again."')
 
-   slot_continue_button = driver.find_element_by_xpath('//*[@id="shipoption-select"]/div/div/div/div/div[2]/div[3]/div/span/span/span/input')
-   #slot_continue_button = driver.find_element_by_xpath('/html/body/div[5]/div[1]/div/div[2]/div/div/div/div/div[2]/div[3]/div/span/span/span/input')
-   slot_continue_button.click()
-   print("Selected slot and continued to next page")
-   
+   try:
+      slot_continue_button = driver.find_element_by_xpath('//*[@id="shipoption-select"]/div/div/div/div/div[2]/div[3]/div/span/span/span/input')
+      #slot_continue_button = driver.find_element_by_xpath('/html/body/div[5]/div[1]/div/div[2]/div/div/div/div/div[2]/div[3]/div/span/span/span/input')
+      slot_continue_button.click()
+      print("Selected slot and continued to next page")
+   except NoSuchElementException:
+      slot_continue_button = driver.find_element_by_xpath('/html/body/div[5]/div[1]/div/div[2]/div/div/div/div/div[2]/div[3]/div/span/span/span/input')
+      slot_continue_button.click()
+      print("Selected slot and continued to next page")
+   '''
    try:
       time.sleep(4)
       #time.sleep(6)
-      outofstock_select_continue = driver.find_element_by_css_selector('[class="a-button-text"]').click()
+      outofstock_select_continue = driver.find_element_by_css_selector('[class="a-button-text"]')
       outofstock_select_continue.click()
       print("Passed out of stock")
    except NoSuchElementException:
-      continue
+      pass
+   '''
 
    try:
       time.sleep(4)
@@ -59,11 +65,12 @@ def autoCheckout(driver):
       #time.sleep(4)
       time.sleep(6)
       try:
-         #review_select_continue = driver.find_element_by_xpath('/html/body/div[5]/div[1]/div[2]/form/div/div/div/div[2]/div/div[1]/div/div[1]/div/span/span/input')
+         review_select_continue = driver.find_element_by_xpath('/html/body/div[5]/div[1]/div[2]/form/div/div/div/div[2]/div/div[1]/div/div[1]/div/span/span/input')
+         review_select_continue = driver.find_element_by_xpath('')
          review_select_continue.click()
          print("Order reviewed")
       except NoSuchElementException:
-         #review_select_continue = driver.find_element_by_xpath('/html/body/div[5]/div[1]/div[2]/form/div/div/div/div[2]/div[2]/div/div[1]/span/span/input')
+         review_select_continue = driver.find_element_by_xpath('/html/body/div[5]/div[1]/div[2]/form/div/div/div/div[2]/div[2]/div/div[1]/span/span/input')
          review_select_continue.click()
          print("Order reviewed")
 
