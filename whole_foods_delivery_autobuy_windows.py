@@ -49,7 +49,7 @@ def autoCheckout(driver):
       outofstock_select_continue.click()
       print("Passed out of stock")
    except NoSuchElementException:
-      pass
+      continue
 
    try:
       time.sleep(4)
