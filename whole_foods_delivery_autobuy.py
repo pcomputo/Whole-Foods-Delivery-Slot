@@ -44,8 +44,8 @@ def autoCheckout(driver):
       print("Selected slot and continued to next page")
 
    try:
-      time.sleep(4)
-      #time.sleep(6)
+      #time.sleep(4)
+      time.sleep(6)
       is_out_of_stock = driver.find_element_by_xpath('//*[@id="changeQuantityFormId"]/div[3]/div/h4')
       outofstock_select_continue = driver.find_element_by_css_selector('[class="a-button-text"]')
       outofstock_select_continue.click()
@@ -54,21 +54,21 @@ def autoCheckout(driver):
       pass
 
    try:
-      time.sleep(4)
-      #time.sleep(6)
+      #time.sleep(4)
+      time.sleep(6)
       #payment_select_continue = driver.find_element_by_xpath('/html/body/div[5]/div[1]/div[2]/div[2]/div[4]/div/form/div[3]/div[1]/div[2]/div/div/div/div[1]/span/span/input')
       payment_select_continue = driver.find_element_by_xpath('//*[@id="continue-top"]')
       payment_select_continue.click()
       print("Payment method selected")
 
-      time.sleep(4)
+      time.sleep(6)
       try:
          review_select_continue = driver.find_element_by_xpath('//*[@id="placeYourOrder"]/span/input')
-         #review_select_continue = driver.find_element_by_xpath('/html/body/div[5]/div[1]/div[2]/form/div/div/div/div[2]/div/div[1]/div/div[1]/div/span/span/input')
+         ##review_select_continue = driver.find_element_by_xpath('/html/body/div[5]/div[1]/div[2]/form/div/div/div/div[2]/div/div[1]/div/div[1]/div/span/span/input')
          review_select_continue.click()
          print("Order reviewed")
       except NoSuchElementException:
-         #review_select_continue = driver.find_element_by_xpath('/html/body/div[5]/div[1]/div[2]/form/div/div/div/div[2]/div[2]/div/div[1]/span/span/input')
+         ##review_select_continue = driver.find_element_by_xpath('/html/body/div[5]/div[1]/div[2]/form/div/div/div/div[2]/div[2]/div/div[1]/span/span/input')
          review_select_continue = driver.find_element_by_xpath('/html/body/div[5]/div[1]/div[2]/form/div/div/div/div[2]/div/div[1]/div/div[1]/div/span/span/input')
          review_select_continue.click()
          print("Order reviewed")
