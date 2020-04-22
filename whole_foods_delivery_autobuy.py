@@ -125,6 +125,7 @@ def getWFSlot(productUrl):
 
       except AttributeError:
          pass
+      '''
 
       try:
          no_slot_pattern = 'No delivery windows available. New windows are released throughout the day.'
@@ -134,8 +135,19 @@ def getWFSlot(productUrl):
             print('SLOTS OPEN!')
             os.system('say "Slots for delivery opened!"')
             no_open_slots = False
-
             autoCheckout(driver)
+
+      try:
+         no_slot_pattern = 'Due to increased demand, available windows are limited. Please check back later or shop a'
+         if no_slot_pattern in soup.find('h4', class_ ='a-alert-heading').text:
+            print("NO SLOTS!")
+      except AttributeError: 
+            print('SLOTS OPEN!')
+            os.system('say "Slots for delivery opened!"')
+            no_open_slots = False
+            autoCheckout(driver)
+
+      '''
 
 
 getWFSlot('https://www.amazon.com/gp/buy/shipoptionselect/handlers/display.html?hasWorkingJavascript=1')
