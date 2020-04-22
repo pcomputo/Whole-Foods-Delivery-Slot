@@ -42,16 +42,16 @@ def autoCheckout(driver):
       slot_continue_button = driver.find_element_by_xpath('/html/body/div[5]/div[1]/div/div[2]/div/div/div/div/div[2]/div[3]/div/span/span/span/input')
       slot_continue_button.click()
       print("Selected slot and continued to next page")
-   '''
+
    try:
       time.sleep(4)
       #time.sleep(6)
+      is_out_of_stock = driver.find_element_by_xpath('//*[@id="changeQuantityFormId"]/div[3]/div/h4')
       outofstock_select_continue = driver.find_element_by_css_selector('[class="a-button-text"]')
       outofstock_select_continue.click()
       print("Passed out of stock")
    except NoSuchElementException:
       pass
-   '''
 
    try:
       time.sleep(4)
@@ -61,16 +61,15 @@ def autoCheckout(driver):
       payment_select_continue.click()
       print("Payment method selected")
 
-
-      #time.sleep(4)
-      time.sleep(6)
+      time.sleep(4)
       try:
-         review_select_continue = driver.find_element_by_xpath('/html/body/div[5]/div[1]/div[2]/form/div/div/div/div[2]/div/div[1]/div/div[1]/div/span/span/input')
-         review_select_continue = driver.find_element_by_xpath('')
+         review_select_continue = driver.find_element_by_xpath('//*[@id="placeYourOrder"]/span/input')
+         #review_select_continue = driver.find_element_by_xpath('/html/body/div[5]/div[1]/div[2]/form/div/div/div/div[2]/div/div[1]/div/div[1]/div/span/span/input')
          review_select_continue.click()
          print("Order reviewed")
       except NoSuchElementException:
-         review_select_continue = driver.find_element_by_xpath('/html/body/div[5]/div[1]/div[2]/form/div/div/div/div[2]/div[2]/div/div[1]/span/span/input')
+         #review_select_continue = driver.find_element_by_xpath('/html/body/div[5]/div[1]/div[2]/form/div/div/div/div[2]/div[2]/div/div[1]/span/span/input')
+         review_select_continue = driver.find_element_by_xpath('/html/body/div[5]/div[1]/div[2]/form/div/div/div/div[2]/div/div[1]/div/div[1]/div/span/span/input')
          review_select_continue.click()
          print("Order reviewed")
 
