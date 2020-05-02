@@ -6,6 +6,7 @@
  - [Visual Aid](#visual-aid)
  - [FAQ](#faq)
    * [Say is not a recognized command](#say-is-not-a-recognized-command)
+   * [Virtualenv error](#Virtualenv-error)
 
 # Whole Foods and Amazon Fresh Delivery Slot Automated Script
 
@@ -86,3 +87,5 @@ As an example, you can look at any of the Windows scripts. Also, there are certa
 Meanwhile, if you'd not like to edit, there is a PR: https://github.com/pcomputo/Whole-Foods-Delivery-Slot/pull/32, you can try to switch to that branch to get audible notifications. I'm in the testing phasing of this PR.
 
 
+## Virtualenv error
+https://www.reddit.com/r/learnpython/comments/g8nf71/i_cant_get_the_virtualenv_to_work_on_amazon_fresh/
