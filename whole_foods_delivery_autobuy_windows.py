@@ -5,6 +5,7 @@ from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
+from selenium.webdriver.chrome.options import Options
 
 import sys
 import time
@@ -86,7 +87,9 @@ def getWFSlot(productUrl):
    duration = 1000
    freq = 440
 
-   driver = webdriver.Chrome()
+   chrome_options = Options()
+   chrome_options.add_argument("user-data-dir=_chrcache")
+   driver = webdriver.Chrome(chrome_options=chrome_options)
    driver.get(productUrl)
    driver.maximize_window()         
    html = driver.page_source

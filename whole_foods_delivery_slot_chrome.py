@@ -1,6 +1,7 @@
 import bs4
 
 from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
 
 import sys
 import time
@@ -12,7 +13,9 @@ def getWFSlot(productUrl):
        'User-Agent': 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36',
    }
 
-   driver = webdriver.Chrome()
+   chrome_options = Options()
+   chrome_options.add_argument("user-data-dir=_chrcache")
+   driver = webdriver.Chrome(chrome_options=chrome_options)
    driver.get(productUrl)           
    html = driver.page_source
    soup = bs4.BeautifulSoup(html, "html.parser")
